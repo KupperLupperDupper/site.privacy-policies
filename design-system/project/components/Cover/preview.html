@@ -1,0 +1,37 @@
+<!-- @dsCard height=288 -->
+<style>
+  .cover { position: relative; width: 960px; height: 288px; overflow: hidden; background: var(--color-bg); font-family: var(--font-sans); }
+  .cover svg { position: absolute; inset: 0; }
+  .slab { fill: var(--color-accent); rx: var(--radius-lg); }
+  .field { fill: var(--color-accent-soft); rx: var(--radius-lg); }
+  .ink { fill: var(--color-text); rx: var(--radius-md); }
+  .disc { fill: var(--color-accent); }
+  .disc-on { fill: var(--color-on-accent); }
+  .cover-text { position: absolute; left: 48px; bottom: 32px; max-width: 440px; }
+  .cover-name { margin: 0; font-size: 88px; line-height: 0.95; font-weight: var(--fw-bold); letter-spacing: var(--tracking-tight); color: var(--color-text); }
+  .cover-tag { margin: 12px 0 0; font-size: 14px; color: var(--color-text-muted); }
+</style>
+<div class="cover">
+  <!--
+    blocks: color-accent slab 160x224 (space-8 x 2.5, radius-lg), color-accent-soft field 288x272 bleeding right and bottom (radius-lg), color-text block 160x80 (radius-md)
+    arrangement: one tall slab bleeding off the top with the ink block under it, and a soft field beside it bleeding off the right and bottom edges
+    pattern: round discs at check-size (22px) on a space-7 (48px) pitch, the checklist's check icons; the system is soft and rounded (radius-pill switcher, round checks), so discs fit
+    steps and radii: space-4 gap, space-7 pitch, check-size discs, radius-lg and radius-md corners
+  -->
+  <svg width="960" height="288" viewBox="0 0 960 288" aria-hidden="true">
+    <rect class="slab" x="512" y="-16" width="160" height="224"/>
+    <rect class="ink" x="512" y="224" width="160" height="80"/>
+    <rect class="field" x="688" y="32" width="288" height="272"/>
+    <g>
+      <circle class="disc" cx="736" cy="80" r="11"/><circle class="disc" cx="784" cy="80" r="11"/><circle class="disc" cx="832" cy="80" r="11"/><circle class="disc" cx="880" cy="80" r="11"/><circle class="disc" cx="928" cy="80" r="11"/>
+      <circle class="disc" cx="736" cy="128" r="11"/><circle class="disc" cx="784" cy="128" r="11"/><circle class="disc" cx="832" cy="128" r="11"/><circle class="disc" cx="880" cy="128" r="11"/><circle class="disc" cx="928" cy="128" r="11"/>
+      <circle class="disc" cx="736" cy="176" r="11"/><circle class="disc" cx="784" cy="176" r="11"/><circle class="disc" cx="832" cy="176" r="11"/><circle class="disc" cx="880" cy="176" r="11"/><circle class="disc" cx="928" cy="176" r="11"/>
+      <circle class="disc" cx="736" cy="224" r="11"/><circle class="disc" cx="784" cy="224" r="11"/><circle class="disc" cx="832" cy="224" r="11"/><circle class="disc" cx="880" cy="224" r="11"/><circle class="disc" cx="928" cy="224" r="11"/>
+      <circle class="disc-on" cx="592" cy="56" r="11"/><circle class="disc-on" cx="592" cy="104" r="11"/><circle class="disc-on" cx="592" cy="152" r="11"/>
+    </g>
+  </svg>
+  <div class="cover-text">
+    <h1 class="cover-name">Privacy Policies</h1>
+    <p class="cover-tag">Calm, quiet pages for app privacy policies, in English and Danish.</p>
+  </div>
+</div>

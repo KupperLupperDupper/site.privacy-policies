@@ -1,0 +1,19 @@
+{
+  "v": 3,
+  "layout": "files",
+  "createdOnFiles": { "v": 1, "at": "2026-10-19T18:00:00Z" },
+  "title": "Privacy Policies",
+  "namespace": "PrivacyPolicies",
+  "libraries": [],
+  "sections": {},
+  "groups": [],
+  "assetGroups": {},
+  "blobs": {},
+  "docs": { "sections": [] },
+  "lastChange": {
+    "by": "Claude",
+    "at": "2026-10-19T18:00:00Z",
+    "via": "Claude Code · site.privacy-policies",
+    "note": "First publish from css/tokens.css, css/site.css and DESIGN.md"
+  }
+}

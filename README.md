@@ -12,7 +12,7 @@ Live site: https://kupperlupperdupper.github.io/site.privacy-policies/
 | `/da/<app-slug>/` | `da/<app-slug>/index.html`: Danish policy |
 | `/styleguide.html` | All design tokens and components |
 
-Apps on the site: **Ponvia** (`/ponvia/`, `/da/ponvia/`).
+Apps on the site: **BetBook** (`/betbook/`, `/da/betbook/`) and **Ponvia** (`/ponvia/`, `/da/ponvia/`).
 
 ## Add a new app
 

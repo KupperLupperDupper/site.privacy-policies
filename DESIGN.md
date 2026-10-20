@@ -132,7 +132,7 @@ Used only on the front page: `.hero__title` (the page's `<h1>`) and `.hero__lead
       <span class="app-card__icon" aria-hidden="true">W</span>
       <div>
         <h2 class="app-card__title">App name</h2>
-        <p class="app-card__desc">One sentence about the app.</p>
+        <p class="app-card__desc">One sentence about the app or system.</p>
         <span class="app-card__cta">Read privacy policy →</span>
       </div>
     </a>
@@ -141,14 +141,14 @@ Used only on the front page: `.hero__title` (the page's `<h1>`) and `.hero__lead
 ```
 
 - The whole card is a single link.
-- `.app-card__icon` shows the first letter of the app name.
+- `.app-card__icon` shows the first letter of the name.
 - Keep the description to one short sentence.
 
 ### Policy page: `.policy`
 
 ```html
 <article class="policy">
-  <a class="back-link" href="../">← All apps</a>
+  <a class="back-link" href="../">← All policies</a>
   <h1 class="policy__title">App name</h1>
   <p class="policy__meta">Privacy policy · Last updated <time datetime="2026-10-19">19 October 2026</time></p>
 

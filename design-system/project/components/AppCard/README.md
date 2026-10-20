@@ -1,6 +1,6 @@
 # AppCard
 
-A link card on the front page for one app, which leads to that app's privacy policy.
+A link card on the front page for one app or system, which leads to its privacy policy.
 
 - Markup: `ul.app-grid > li > a.app-card`. Inside the card: `span.app-card__icon` (the app name's first letter, `aria-hidden`), then a `div` holding `h2.app-card__title`, `p.app-card__desc` and `span.app-card__cta`.
 - The whole card is one link. Keep the description to one short sentence.

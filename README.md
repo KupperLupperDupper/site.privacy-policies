@@ -1,6 +1,6 @@
-# Privacy policies for my apps
+# Privacy policies for my apps and systems
 
-A static website with the privacy policies for my mobile apps, in English and Danish. It's plain HTML and CSS with no build step, published with GitHub Pages.
+A static website with the privacy policies for all my apps, systems and tools (mobile apps, web apps, desktop tools and anything else I publish), in English and Danish. It's plain HTML and CSS with no build step, published with GitHub Pages.
 
 Live site: https://kupperlupperdupper.github.io/site.privacy-policies/
 
@@ -12,11 +12,11 @@ Live site: https://kupperlupperdupper.github.io/site.privacy-policies/
 | `/da/<app-slug>/` | `da/<app-slug>/index.html`: Danish policy |
 | `/styleguide.html` | All design tokens and components |
 
-Apps on the site: **BetBook** (`/betbook/`, `/da/betbook/`) and **Ponvia** (`/ponvia/`, `/da/ponvia/`).
+On the site now: **BetBook** (`/betbook/`, `/da/betbook/`) and **Ponvia** (`/ponvia/`, `/da/ponvia/`).
 
-## Add a new app
+## Add a new app or system
 
-Example: an app called "Habit Log".
+Example: an app called "Habit Log". The steps are the same for a web app, a desktop tool or any other system.
 
 1. **Pick the slug.** Take the app's display name, make it lowercase, replace spaces with hyphens and remove special characters (æ→ae, ø→oe, å→aa). "Habit Log" becomes `habit-log`.
 2. **English page.** Copy `_template/en/index.html` to `habit-log/index.html`.
@@ -32,7 +32,7 @@ Example: an app called "Habit Log".
    | `{{CONTACT_EMAIL}}` | your contact email |
    | `{{YEAR}}` | `2026` |
 
-5. **Match the policy to the app.** Sections marked `OPTIONAL` / `VALGFRIT` (export, biometric lock, reminders, device backups) should stay only if the app really does that. Then delete the instruction comment at the top of each file.
+5. **Match the policy to what it really does.** Sections marked `OPTIONAL` / `VALGFRIT` (export, biometric lock, reminders, device backups) stay only if it really does that. The templates are written for an app installed on a phone. For anything else, rewrite the sections that don't fit. For example, a web app that runs in the browser stores data in the browser instead of on the device and is cleared by clearing site data instead of uninstalling, and a system with a server must describe what the server stores. Then delete the instruction comment at the top of each file.
 6. **Add a card to both front pages.** Copy the Ponvia `<li>` in `index.html` and `da/index.html`, then change the link, the first letter in `app-card__icon`, the name and the one-sentence description. Keep the cards in alphabetical order.
 7. **Check it locally** (see below), then push to `main`.
 

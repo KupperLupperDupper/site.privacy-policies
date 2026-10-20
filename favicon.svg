@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Brand mark: the header shield. Fill is the light color-accent token, stroke is color-on-accent. Keep in sync with css/tokens.css. -->
+  <rect width="32" height="32" rx="7" fill="#2D6A5A"/>
+  <path d="M16 6.5l7.5 3.2v6.4c0 4.8-3.2 8-7.5 9.6-4.3-1.6-7.5-4.8-7.5-9.6V9.7L16 6.5z" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

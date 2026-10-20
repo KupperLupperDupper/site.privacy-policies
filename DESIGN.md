@@ -12,7 +12,7 @@ This site has a single look, and every page has to follow it. The look is define
 ## Rules
 
 1. **Only tokens and components.** Pages use the classes documented below and nothing else. Pages contain no `style="…"` attributes, no `<style>` blocks, and no page-specific CSS files.
-2. **No raw values outside `tokens.css`.** `site.css` refers to `var(--token)` and never uses a literal color, font size, spacing or radius. One exception is allowed: the `@media` breakpoints (`40rem`, `60rem`), because custom properties can't be used inside media queries.
+2. **No raw values outside `tokens.css`.** `site.css` refers to `var(--token)` and never uses a literal color, font size, spacing or radius. Two exceptions are allowed. The `@media` breakpoints (`40rem`, `60rem`) are written literally, because custom properties can't be used inside media queries. The browser icons (`favicon.svg`, `apple-touch-icon.png`) hard-code the light `--color-accent` and `--color-on-accent`, because an icon file can't read CSS variables. If those tokens change, update the icons too.
 3. **Need something new?** Add it to the design system first: a token in `tokens.css`, a component in `site.css`, a section in this file, an example in `styleguide.html`, and a matching entry under `design-system/project/` (tokens or a component folder). Then republish the design system artifact (see `CLAUDE.md`). Only after that, use it on a page.
 4. **No external resources.** The site uses no web fonts, CDNs, analytics or tracking pixels. The site is about privacy, so pages make no third-party requests.
 5. **Accessibility.** Keep the skip link, use one `<h1>` per page, give the language switcher `aria-current="page"` on the current language, and never remove the focus outline.
@@ -89,6 +89,19 @@ Every page has this structure. Copy it from `_template/` rather than writing it 
 ```
 
 `.container` centers content at `--page-width`, with side gutters that match the breakpoints.
+
+### Browser icon
+
+Every page links the brand mark as its tab icon in `<head>`, before the stylesheets. Adjust the relative path to the page's folder depth (`../`, `../../`):
+
+```html
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+```
+
+- `favicon.svg` is the header shield (`.brand__mark`) in `--color-on-accent` on a `--color-accent` square with `--radius-sm`-like rounding. It is used in browser tabs and bookmarks.
+- `apple-touch-icon.png` (180 × 180) is the same mark with square corners, because iOS rounds the corners itself. It is used when the site is saved to a home screen.
+- To regenerate the PNG after changing the SVG, remove `rx` from the rect and render it at 180 px, for example with `npx sharp-cli@5.1.0 --input square.svg --output apple-touch-icon.png --density 540 resize 180 180`.
 
 ### Header: `.site-header`
 

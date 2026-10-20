@@ -6,14 +6,24 @@
   "namespace": "PrivacyPolicies",
   "libraries": [],
   "sections": {},
-  "groups": [],
-  "assetGroups": {},
+  "groups": ["Logos"],
+  "assetGroups": {
+    "Logos": {
+      "name": "Logos",
+      "tile": "m",
+      "order": ["favicon.svg", "apple-touch-icon.png"],
+      "files": {
+        "favicon.svg": { "name": "favicon.svg", "blob": "507c3371fccbf7b5ae3af8744c382470", "size": 322, "type": "image/svg+xml" },
+        "apple-touch-icon.png": { "name": "apple-touch-icon.png", "blob": "d2dadcca58bedd16d044c9795fd78fd8", "size": 3263, "type": "image/png" }
+      }
+    }
+  },
   "blobs": {},
   "docs": { "sections": [] },
   "lastChange": {
     "by": "Claude",
-    "at": "2026-10-19T18:00:00Z",
+    "at": "2026-10-20T16:00:00Z",
     "via": "Claude Code · site.privacy-policies",
-    "note": "First publish from css/tokens.css, css/site.css and DESIGN.md"
+    "note": "Add the browser icon (favicon.svg, apple-touch-icon.png) as Logos"
   }
 }

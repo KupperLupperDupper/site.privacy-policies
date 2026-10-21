@@ -183,6 +183,15 @@ Used only on the front page: `.hero__title` (the page's `<h1>`) and `.hero__lead
 - `.policy-section` blocks are separated by a thin rule. **Contact** is always the last section.
 - Plain `<p>`, `<ul>` and `<a>` inside a section are styled automatically.
 
+### Standalone policy page (in-app)
+
+This is a variant of a policy page that an app opens in its own web view, at `<slug>/app/` and `da/<slug>/app/`. It uses the same components with two changes, so the reader can't navigate away from the policy:
+
+- There is no `.back-link`.
+- The brand is a `<span class="brand">` instead of a link. The language switcher stays and links to the other language's `app/` page.
+
+In `<head>` it has `<meta name="robots" content="noindex">`, no `canonical`, and `hreflang` links that point to the two `app/` pages. Everything from `.policy__title` to `</article>` must be identical to the normal policy page. The deploy workflow checks this.
+
 ### Footer: `.site-footer`
 
 ```html

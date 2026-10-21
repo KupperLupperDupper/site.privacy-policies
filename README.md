@@ -37,6 +37,21 @@ Example: an app called "Habit Log". The steps are the same for a web app, a desk
 
 The deploy workflow refuses to publish if any `{{…}}` placeholder is left in a published page.
 
+## Standalone pages for use inside an app
+
+An app can show its policy in a web view without the site's navigation. A standalone page has no back link, and its site name isn't a link.
+
+| App | English | Danish |
+|---|---|---|
+| Ponvia | https://kupperlupperdupper.github.io/site.privacy-policies/ponvia/app/ | https://kupperlupperdupper.github.io/site.privacy-policies/da/ponvia/app/ |
+
+To add one for another app:
+
+1. Copy `ponvia/app/index.html` to `<slug>/app/index.html`, and `da/ponvia/app/index.html` to `da/<slug>/app/index.html`.
+2. Replace everything from `<h1 class="policy__title">` to `</article>` with the same part of that app's normal policy page. Change `ponvia` to the slug in the `hreflang` links and the language switcher, and update `<title>` and `<meta name="description">`.
+
+**Whenever you change a policy, change its `app/` page in the same way.** The deploy workflow compares the two and refuses to publish if the policy text differs.
+
 ## Change the contact email
 
 Each language has its own contact address, and it appears on every page in that language and in its template:

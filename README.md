@@ -29,7 +29,6 @@ Example: an app called "Habit Log". The steps are the same for a web app, a desk
    | `{{APP_SLUG}}` | `habit-log` |
    | `{{LAST_UPDATED_ISO}}` | `2026-11-02` |
    | `{{LAST_UPDATED}}` | `2 November 2026` (EN) / `2. november 2026` (DA) |
-   | `{{CONTACT_EMAIL}}` | your contact email |
    | `{{YEAR}}` | `2026` |
 
 5. **Match the policy to what it really does.** Sections marked `OPTIONAL` / `VALGFRIT` (export, biometric lock, reminders, device backups) stay only if it really does that. The templates are written for an app installed on a phone. For anything else, rewrite the sections that don't fit. For example, a web app that runs in the browser stores data in the browser instead of on the device and is cleared by clearing site data instead of uninstalling, and a system with a server must describe what the server stores. Then delete the instruction comment at the top of each file.
@@ -40,13 +39,20 @@ The deploy workflow refuses to publish if any `{{…}}` placeholder is left in a
 
 ## Change the contact email
 
-The contact email appears on every page. For now it is shown as `TBD`. To set a real address everywhere at once (replace `you@example.com` with the address):
+Each language has its own contact address, and it appears on every page in that language and in its template:
+
+| Language | Address | Files |
+|---|---|---|
+| English | `support@stormitron.com` | root pages, `404.html`, `_template/en/` |
+| Danish | `support@stormitron.dk` | everything under `da/`, `_template/da/` |
+
+To change an address everywhere at once, replace `new@example.com` below with the new address:
 
 ```bash
-grep -rl 'TBD' --include=*.html . | xargs sed -i 's#TBD#<a href="mailto:you@example.com">you@example.com</a>#g'
+grep -rl 'support@stormitron.com' --include=*.html . | xargs sed -i 's/support@stormitron\.com/new@example.com/g'
 ```
 
-To change it again later, run the same command with the current address in place of `TBD`.
+Use `support@stormitron.dk` in the command to change the Danish address. Contact details are part of the policy, so also update the "Last updated" date on each policy page.
 
 ## Follow the design system
 

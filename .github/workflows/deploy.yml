@@ -29,11 +29,11 @@ jobs:
       - name: Collect site files
         run: |
           mkdir _site
-          cp -r index.html 404.html styleguide.html favicon.svg apple-touch-icon.png css da _site/
+          cp -r index.html 404.html styleguide.html favicon.svg apple-touch-icon.png css fonts da _site/
           for dir in */; do
             dir="${dir%/}"
             case "$dir" in
-              _site|_template|css|da|design-system) continue ;;
+              _site|_template|css|fonts|da|design-system) continue ;;
             esac
             if [ -f "$dir/index.html" ]; then
               cp -r "$dir" _site/

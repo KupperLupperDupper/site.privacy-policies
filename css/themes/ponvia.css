@@ -1,0 +1,61 @@
+/*
+ * App theme: Ponvia (Salvie).
+ * Loaded after site.css on Ponvia's pages only. It only redefines tokens and
+ * declares the app's fonts. Components stay the same; see DESIGN.md › App themes.
+ * Values come from Salvie's design/tokens.json in the Ponvia repo.
+ */
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("../../fonts/ponvia/DMSans-Variable.woff2") format("woff2");
+  font-weight: 100 1000;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("../../fonts/ponvia/Fraunces-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Salvie light: cream page, one muted sage accent */
+  --color-bg: #F3F1E8;            /* bg */
+  --color-surface: #FDFCF8;       /* surface */
+  --color-text: #1F2A22;          /* ink */
+  --color-text-muted: #4B554D;    /* ink-muted */
+  --color-border: #DCD9CD;        /* border */
+  --color-accent: #4A6650;        /* sage-ink: passes 4.5:1 as text on bg */
+  --color-accent-hover: #2F5A38;  /* focus green, darker than sage-ink */
+  --color-accent-soft: #E1EADD;   /* sage-soft */
+  --color-on-accent: #FFFFFF;     /* on-sage */
+  --color-focus: #2F5A38;         /* focus */
+
+  --font-sans: "DM Sans", "Segoe UI", Roboto, system-ui, sans-serif;
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --fw-display: 500;
+
+  /* Salvie is rounder: radius-sm 10, radius-md 16, radius-lg 22 */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Salvie dark: green-tinted near-black, lighter sage */
+    --color-bg: #121613;
+    --color-surface: #1B211C;
+    --color-text: #E8EDE6;
+    --color-text-muted: #AEB6AF;
+    --color-border: #2C342E;
+    --color-accent: #A9CBAB;        /* sage-ink */
+    --color-accent-hover: #C3E0C4;
+    --color-accent-soft: #2F4034;
+    --color-on-accent: #121613;
+    --color-focus: #C3E0C4;
+  }
+}

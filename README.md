@@ -75,7 +75,8 @@ All styling comes from the design system. Read [DESIGN.md](DESIGN.md) before you
 
 - Pages link `css/tokens.css` and `css/site.css` and nothing else.
 - Use only the documented components (`site-header`, `lang-switch`, `app-card`, `summary`, `policy-section`, …). Pages have no `style="…"` attributes, no `<style>` blocks and no extra CSS files.
-- Raw values (colors, sizes, spacing) live only in `css/tokens.css`.
+- Raw values (colors, sizes, spacing) live only in `css/tokens.css` and in app themes.
+- An app's pages can use the app's own look through an app theme in `css/themes/<slug>.css`, with its fonts in `fonts/<slug>/`. Ponvia's pages use the Salvie theme. See "App themes" in DESIGN.md.
 - To add something new, add it to the design system first: a token or component, a `DESIGN.md` entry and an example in `styleguide.html`.
 - Open `/styleguide.html` to see every token and component.
 

@@ -21,6 +21,7 @@
 
   /* Typography */
   --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: var(--font-sans); /* page and section titles; an app theme may set a display face */
   --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 
   --fs-sm: 0.875rem;   /* 14px — meta, footer, labels */
@@ -36,6 +37,7 @@
   --fw-regular: 400;
   --fw-medium: 500;
   --fw-bold: 650;
+  --fw-display: var(--fw-bold); /* weight of page and section titles */
 
   --tracking-tight: -0.01em;
 

@@ -12,11 +12,12 @@ This site has a single look, and every page has to follow it. The look is define
 ## Rules
 
 1. **Only tokens and components.** Pages use the classes documented below and nothing else. Pages contain no `style="…"` attributes, no `<style>` blocks, and no page-specific CSS files.
-2. **No raw values outside `tokens.css`.** `site.css` refers to `var(--token)` and never uses a literal color, font size, spacing or radius. Two exceptions are allowed. The `@media` breakpoints (`40rem`, `60rem`) are written literally, because custom properties can't be used inside media queries. The browser icons (`favicon.svg`, `apple-touch-icon.png`) hard-code the light `--color-accent` and `--color-on-accent`, because an icon file can't read CSS variables. If those tokens change, update the icons too.
+2. **No raw values outside `tokens.css` and app theme files.** `site.css` refers to `var(--token)` and never uses a literal color, font size, spacing or radius. Two exceptions are allowed. The `@media` breakpoints (`40rem`, `60rem`) are written literally, because custom properties can't be used inside media queries. The browser icons (`favicon.svg`, `apple-touch-icon.png`) hard-code the light `--color-accent` and `--color-on-accent`, because an icon file can't read CSS variables. If those tokens change, update the icons too. App theme files in `css/themes/` hold raw values too, because they are token files for one app.
 3. **Need something new?** Add it to the design system first: a token in `tokens.css`, a component in `site.css`, a section in this file, an example in `styleguide.html`, and a matching entry under `design-system/project/` (tokens or a component folder). Then republish the design system artifact (see `CLAUDE.md`). Only after that, use it on a page.
-4. **No external resources.** The site uses no web fonts, CDNs, analytics or tracking pixels. The site is about privacy, so pages make no third-party requests.
+4. **No external resources.** The site loads nothing from other servers: no hosted web fonts, CDNs, analytics or tracking pixels. The site is about privacy, so pages make no third-party requests. Fonts that an app theme needs are copied into `fonts/` and served from the site itself.
 5. **Accessibility.** Keep the skip link, use one `<h1>` per page, give the language switcher `aria-current="page"` on the current language, and never remove the focus outline.
 6. **Light and dark.** Colors switch automatically through `prefers-color-scheme`. Use only color tokens; never hard-code a color for one mode.
+7. **App themes.** One app's pages may use that app's own look through an app theme (see App themes below). The rest of the site keeps the default look.
 
 ## Tokens
 
@@ -182,6 +183,28 @@ Used only on the front page: `.hero__title` (the page's `<h1>`) and `.hero__lead
 - `.summary` lists the main points, 3–5 short `.checklist__item` lines, each a positive statement.
 - `.policy-section` blocks are separated by a thin rule. **Contact** is always the last section.
 - Plain `<p>`, `<ul>` and `<a>` inside a section are styled automatically.
+
+### App themes
+
+An app theme lets one app's policy pages match the app's own look. It lives in `css/themes/<slug>.css`, and the app's pages link it after `site.css`:
+
+```html
+<link rel="stylesheet" href="../css/themes/ponvia.css">
+```
+
+- A theme **only redefines tokens** (colors for light and dark, `--font-sans`, `--font-display`, `--fw-display`, radii) and declares `@font-face` for fonts in `fonts/<slug>/`. It never adds selectors for components, so every component keeps working the same way.
+- Copy the values from the app's own design tokens, and note which app token each one comes from.
+- Use the app's accent as `--color-accent` only if it passes 4.5:1 as text on `--color-bg`, because links use it. Otherwise use the app's darker text version of the accent.
+- Put the font files and their licenses (for example `OFL.txt`) in `fonts/<slug>/`. Use WOFF2 to keep the page small.
+- Use themes on that app's pages only: its normal pages and its `app/` pages, in both languages. Front pages, the styleguide and other apps keep the default look.
+
+Existing themes:
+
+| Theme | File | Source |
+|---|---|---|
+| Ponvia (Salvie) | `css/themes/ponvia.css` | `design/tokens.json` in the Ponvia repo. Cream page, sage accent, Fraunces titles at 500, DM Sans text, radii 10/16/22. |
+
+`--font-display` and `--fw-display` are the tokens that make this possible. They set the font and weight of `.hero__title`, `.policy__title` and `.policy-section__title`. By default they are the same as `--font-sans` and `--fw-bold`.
 
 ### Standalone policy page (in-app)
 

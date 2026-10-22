@@ -60,7 +60,8 @@ jobs:
 
       - name: Check for leftover template placeholders
         run: |
-          if grep -rl '{{' _site; then
+          # Only pages can hold placeholders; binary files like fonts may contain "{{" by chance.
+          if grep -rl --include='*.html' '{{' _site; then
             echo "::error::Found {{placeholders}} in the files above. Replace them before deploying."
             exit 1
           fi
